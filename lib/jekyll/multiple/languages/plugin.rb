@@ -42,14 +42,14 @@ module Jekyll
       puts 'Build complete'
     end
 
-    alias :read_posts_org :read_posts
-    def read_posts(dir)
-      if dir == ''
-        read_posts("_i18n/#{self.config['lang']}/")
-      else
-        read_posts_org(dir)
-      end
-    end
+  #   alias :read_posts_org :read_posts
+  #   def read_posts(dir)
+  #     if dir == ''
+  #       read_posts("_i18n/#{self.config['lang']}/")
+  #     else
+  #       read_posts_org(dir)
+  #     end
+  #   end
   end
 
   class LocalizeTag < Liquid::Tag
