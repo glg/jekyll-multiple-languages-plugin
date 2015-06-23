@@ -60,6 +60,10 @@ Copy or link the file `lib/jekyll/multiple/languages/plugin.rb` into your `_plug
 * Supports translated template files
 
 ##Changelog
+* 1.2.9
+  * Bug fix when excluding files from translation, again thanks to [@h6](https://github.com/H6)
+* 1.2.8
+  * Support for excluding files from translation, thanks to [@h6](https://github.com/H6)
 * 1.2.7
   * Support for Jekyll 2.5+, thanks to [@caxy4](https://github.com/caxy4)
 * 1.2.6
@@ -96,6 +100,17 @@ languages: ["sv", "en", "de", "fr"]
 ```
 
 The first language in the array will be the default language, English, German and French will be added in to separate subfolders.
+
+To avoid redundancy, it is possible to exclude files and folders from beeing copied to the localization folders. 
+
+```yaml
+exclude_from_localizations: ["javascript", "images", "css"]
+```
+In code these specific files should be referenced via `baseurl_root`. E.g.
+
+```
+<link rel="stylesheet" href="{{ "/css/bootstrap.css" | prepend: site.baseurl_root }}"/>
+```
 
 ###i18n
 Create this folder structure in your Jekyll project as an example:
@@ -227,6 +242,8 @@ This snippet will create a link that will toggle between Swedish and English. A 
 5. Create new Pull Request
 
 ### Contributors
-- [Bersch](https://github.com/bersch), better paths
-- [Davrandom](https://github.com/davrandom), plugin usage example
-- [agramian](https://github.com/agramian), fallback to default language
+- [@Bersch](https://github.com/bersch), better paths
+- [@Davrandom](https://github.com/davrandom), plugin usage example
+- [@agramian](https://github.com/agramian), fallback to default language
+- [@h6](https://github.com/H6), exclude files from translation
+- [@leoditommaso](https://github.com/leoditommaso), update the example page
